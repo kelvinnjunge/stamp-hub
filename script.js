@@ -1,5 +1,6 @@
 const EMAIL = "Nzukielfinah@gmail";
 const MAIL_LINK = `mailto:${EMAIL}?subject=${encodeURIComponent("Order: rubber stamp")}&body=${encodeURIComponent("Hello, I'd like to order a rubber stamp.")}`;
+const WHATSAPP_LINK = `https://wa.me/254778046004?text=${encodeURIComponent("Hello, I'd like to order a rubber stamp.")}`;
 
 const products = [
     {
@@ -72,7 +73,7 @@ function renderProducts() {
                     <p>${product.desc}</p>
                     <div class="product-card-footer">
                         <span class="product-price">${product.price}</span>
-                        <a href="${MAIL_LINK}" target="_blank" rel="noreferrer">Order →</a>
+                        <a href="${WHATSAPP_LINK}" target="_blank" rel="noreferrer">Order →</a>
                     </div>
                 </div>
             </article>`
@@ -83,10 +84,11 @@ function renderProducts() {
 }
 
 function initLinks() {
-    const mailLinks = document.querySelectorAll("#whatsapp-link, #whatsapp-link-2");
-    mailLinks.forEach((element) => {
+    const whatsappLinks = document.querySelectorAll("#whatsapp-link, #whatsapp-link-2");
+
+    whatsappLinks.forEach((element) => {
         if (element instanceof HTMLAnchorElement) {
-            element.href = MAIL_LINK;
+            element.href = WHATSAPP_LINK;
         }
     });
 }
