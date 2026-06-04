@@ -1,5 +1,5 @@
-const PHONE = "+254778046004";
-const WHATSAPP_LINK = `https://wa.me/254778046004?text=${encodeURIComponent("Hello, I'd like to order a rubber stamp.")}`;
+const EMAIL = "Nzukielfinah@gmail";
+const MAIL_LINK = `mailto:${EMAIL}?subject=${encodeURIComponent("Order: rubber stamp")}&body=${encodeURIComponent("Hello, I'd like to order a rubber stamp.")}`;
 
 const products = [
     {
@@ -65,17 +65,17 @@ function renderProducts() {
     const html = products
         .map(
             (product) => `
-      <article class="product-card">
-        <img src="${product.img}" alt="${product.name}" loading="lazy" />
-        <div class="product-card-content">
-          <h3>${product.name}</h3>
-          <p>${product.desc}</p>
-          <div class="product-card-footer">
-            <span class="product-price">${product.price}</span>
-            <a href="${WHATSAPP_LINK}" target="_blank" rel="noreferrer">Order →</a>
-          </div>
-        </div>
-      </article>`
+            <article class="product-card">
+                <img src="${product.img}" alt="${product.name}" loading="lazy" />
+                <div class="product-card-content">
+                    <h3>${product.name}</h3>
+                    <p>${product.desc}</p>
+                    <div class="product-card-footer">
+                        <span class="product-price">${product.price}</span>
+                        <a href="${MAIL_LINK}" target="_blank" rel="noreferrer">Order →</a>
+                    </div>
+                </div>
+            </article>`
         )
         .join("");
 
@@ -83,10 +83,10 @@ function renderProducts() {
 }
 
 function initLinks() {
-    const whatsappLinks = document.querySelectorAll("#whatsapp-link, #whatsapp-link-2");
-    whatsappLinks.forEach((element) => {
+    const mailLinks = document.querySelectorAll("#whatsapp-link, #whatsapp-link-2");
+    mailLinks.forEach((element) => {
         if (element instanceof HTMLAnchorElement) {
-            element.href = WHATSAPP_LINK;
+            element.href = MAIL_LINK;
         }
     });
 }
